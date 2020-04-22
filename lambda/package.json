@@ -1,0 +1,32 @@
+{
+  "name": "lambda",
+  "version": "1.0.0",
+  "description": "Lambda Functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint . --ext .js",
+    "lint:fix": "eslint . --fix --ext .js",
+    "build": "webpack"
+  },
+  "author": "New Town Data Ltd",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jest": "^23.8.2",
+    "eslint-plugin-prettier": "^3.1.2",
+    "jest": "^25.2.7",
+    "prettier": "^2.0.4",
+    "prettier-eslint-cli": "^5.0.0",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.654.0"
+  }
+}
