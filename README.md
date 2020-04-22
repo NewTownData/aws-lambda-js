@@ -1,5 +1,7 @@
 # Example AWS HTTP API with Javascript Lambda
 
+![CI](https://github.com/NewTownData/aws-lambda-js/workflows/CI/badge.svg)
+
 An example AWS CDK stack that deploys HTTP API with Javascript Lambda.
 
 The AWS CDK stack is at `cdk` folder.

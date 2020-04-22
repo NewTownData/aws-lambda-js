@@ -1,0 +1,32 @@
+name: CI
+
+on: push
+
+jobs:
+  build-lambda:
+    name: Build Lambda and CDK
+
+    runs-on: ubuntu-latest
+    
+    env:
+      CI: true
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+      - name: Build Lambda
+        working-directory: lambda  
+        run: |
+          npm ci
+          npm run build
+          npm run lint
+          npm run test
+      - name: Build CDK
+        working-directory: cdk
+        run: |
+          npm ci
+          npm run build
+          npm run cdk synth
