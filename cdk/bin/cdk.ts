@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import "source-map-support/register";
-import * as cdk from "@aws-cdk/core";
 import { RestLambdaStack } from "../lib/RestLambdaStack";
+import { App } from "@aws-cdk/core";
 
-const app = new cdk.App();
+const app = new App();
 new RestLambdaStack(app, "RestLambdaStack");

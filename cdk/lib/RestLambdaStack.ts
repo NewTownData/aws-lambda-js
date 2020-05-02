@@ -20,7 +20,15 @@ export class RestLambdaStack extends Stack {
       name: `${apiPrefix}-rest-api`,
     });
 
-    const pingRoute = addRestRoute(restApi, pingFcn, "Ping", "GET /ping");
+    const routes = [
+      addRestRoute({
+        api: restApi,
+        lambda: pingFcn,
+        name: "Ping",
+        method: "GET",
+        path: "/ping",
+      }),
+    ];
 
     const restDeployment = new CfnDeployment(
       this,
@@ -30,7 +38,10 @@ export class RestLambdaStack extends Stack {
         description: `For stage ${StageName}`,
       }
     );
-    restDeployment.addDependsOn(pingRoute);
+
+    routes.forEach((route) => {
+      restDeployment.addDependsOn(route);
+    });
 
     new CfnStage(this, "RestStage", {
       apiId: restApi.ref,
