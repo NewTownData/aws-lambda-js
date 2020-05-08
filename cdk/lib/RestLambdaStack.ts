@@ -39,14 +39,21 @@ export class RestLambdaStack extends Stack {
       }
     );
 
-    routes.forEach((route) => {
-      restDeployment.addDependsOn(route);
-    });
-
-    new CfnStage(this, "RestStage", {
+    const restStage = new CfnStage(this, "RestStage", {
       apiId: restApi.ref,
       stageName: StageName,
       deploymentId: restDeployment.ref,
+      autoDeploy: true,
+      defaultRouteSettings: {
+        // modify these limits based on your needs
+        throttlingBurstLimit: 5,
+        throttlingRateLimit: 10,
+      },
+    });
+
+    routes.forEach((route) => {
+      restDeployment.addDependsOn(route);
+      restStage.addDependsOn(route);
     });
 
     new CfnOutput(this, "PingURL", {
