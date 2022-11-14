@@ -1,6 +1,10 @@
 # Example AWS HTTP API with Javascript Lambda
 
-![CI](https://github.com/NewTownData/aws-lambda-js/workflows/CI/badge.svg)
+## ⚠️ Important Message ⚠️
+
+> As of 2022-11-14 this project is no longer maintained. If you plan to build your project based on this code, please, make sure it contains safe dependencies and that it is up-to-date with the latest best security practices.
+
+## Description
 
 An example AWS CDK stack that deploys HTTP API with Javascript Lambda.
 
